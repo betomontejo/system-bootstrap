@@ -26,6 +26,10 @@
       apt:
         update_cache: yes
       become: true
+    
+    - name: "Upgrade APT"
+      shell: apt upgrade
+      become: true
 
     - name: "Install APT packages"
       apt:
