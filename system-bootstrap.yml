@@ -35,4 +35,15 @@
         executable: "/bin/bash"
       with_items: 
        - java
+
+    - name: "Download IntelliJ IDEA"
+      get_url: 
+        url: "https://download.jetbrains.com/idea/ideaIC-2017.1.2.tar.gz"
+        sha256sum: "0a22794a7c7d8a97e0b179923bffa5311046bc0db2bc330e23abde24b6340f8b"
+        dest: "~/"
+
+    - name: "Unarchive IntelliJ IDEA"
+      unarchive:
+        src: "~/ideaIC-2017.1.2.tar.gz"
+        dest: "~/"
       
