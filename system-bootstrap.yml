@@ -3,11 +3,22 @@
 
   tasks:
 
-    - name: "Add GIT PPA repoistory"
+    - name : "Add PPA keys"
+      apt_key:
+        url: "{{ item }}"
+      become: true
+      with_items:
+        - "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+      become: true
+
+    - name: "Add PPA repoistories"
       apt_repository: 
-        repo: "ppa:git-core/ppa"
+        repo: "{{ item }}"
         state: present
       become: true
+      with_items: 
+        - "ppa:git-core/ppa"
+        - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 
     - name: "Update APT cache"
       apt:
@@ -18,9 +29,10 @@
       apt:
         pkg: "{{ item }}"
       with_items:
-        - zip
-        - unzip
-        - git
+        - "zip"
+        - "unzip"
+        - "git"
+        - "google-chrome-stable"
       become: true
 
     - name: "Install SDKMAN!"
