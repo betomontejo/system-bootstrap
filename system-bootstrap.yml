@@ -9,13 +9,30 @@
         state: present
       become: true
 
-    - name: "Update cache"
+    - name: "Update APT cache"
       apt:
         update_cache: yes
       become: true
 
-    - name: "Install GIT"
+    - name: "Install APT packages"
       apt:
-        name: git
-        state: present
+        pkg: "{{ item }}"
+      with_items:
+        - zip
+        - unzip
+        - git
       become: true
+
+    - name: "Install SDKMAN!"
+      shell: curl -s "https://get.sdkman.io" | bash
+ 
+    - name: "Install SDKMAN candiates"
+      shell: |
+          set -e
+          source ~/.sdkman/bin/sdkman-init.sh
+          sdk install {{ item }}
+      args:
+        executable: "/bin/bash"
+      with_items: 
+       - java
+      
