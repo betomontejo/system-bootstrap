@@ -9,6 +9,7 @@
       become: true
       with_items:
         - "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+        - "https://download.docker.com/linux/ubuntu/gpg"
       become: true
 
     - name: "Add PPA repoistories"
@@ -19,6 +20,7 @@
       with_items: 
         - "ppa:git-core/ppa"
         - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+        - "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 
     - name: "Update APT cache"
       apt:
@@ -33,6 +35,7 @@
         - "unzip"
         - "git"
         - "google-chrome-stable"
+        - "docker-ce"
       become: true
 
     - name: "Install SDKMAN!"
