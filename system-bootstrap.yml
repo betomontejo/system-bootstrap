@@ -50,6 +50,10 @@
         executable: "/bin/bash"
       with_items: 
        - java
+       - gradle
+       - sbt
+       - scala
+       - groovy
 
     - name: "Download IntelliJ IDEA"
       get_url: 
