@@ -5,5 +5,5 @@ sudo apt install -y python-minimal build-essential libssl-dev python-dev
 get -O - https://bootstrap.pypa.io/get-pip.py | sudo python
 sudo pip install ansible
 sudo mkdir /etc/ansible && echo "localhost ansible_connection=local" | sudo tee --append /etc/ansible/hosts
-ansible-playbook beto-system.yml
+ansible-playbook system-bootstrap.yml
 

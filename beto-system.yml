@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+
+  tasks:
+
+    - name: "Add GIT PPA repoistory"
+      apt_repository: 
+        repo: "ppa:git-core/ppa"
+        state: present
+      become: true
+
+    - name: "Update cache"
+      apt:
+        update_cache: yes
+      become: true
+
+    - name: "Install GIT"
+      apt:
+        name: git
+        state: present
+      become: true
