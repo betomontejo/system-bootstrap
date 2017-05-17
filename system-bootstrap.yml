@@ -62,21 +62,16 @@
        - scala
        - groovy
 
-    - name: "Download IntelliJ IDEA"
-      get_url: 
-        url: "https://download.jetbrains.com/idea/ideaIC-2017.1.2.tar.gz"
-        sha256sum: "0a22794a7c7d8a97e0b179923bffa5311046bc0db2bc330e23abde24b6340f8b"
-        dest: "~/"
-
-    - name: "Unarchive IntelliJ IDEA"
+    - name: "Download and unarchive IntelliJ IDEA"
       unarchive:
-        src: "~/ideaIC-2017.1.2.tar.gz"
+        src: "https://download.jetbrains.com/idea/ideaIC-2017.1.3.tar.gz"
         dest: "~/"
+        remote_src: yes
 
     - name: "Download and unarchive IntelliJ IDEA Plugins"
       unarchive:
         src: "{{ item }}"
-        dest: "~/idea-IC-171.4249.39/plugins/"
+        dest: "~/idea-IC-171.4424.56/plugins/"
         remote_src: yes
       with_items: 
         - "https://plugins.jetbrains.com/plugin/download?updateId=34745"
