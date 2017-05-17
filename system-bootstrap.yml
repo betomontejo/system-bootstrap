@@ -24,7 +24,7 @@
       with_items: 
         - "ppa:git-core/ppa"
         - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-        - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_codename}} stable"
+        - "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
         - "deb http://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
 
     - name: "Update APT cache"
@@ -40,6 +40,8 @@
       apt:
         pkg: "{{ item }}"
       with_items:
+        - "curl"
+        - "vim"
         - "zip"
         - "unzip"
         - "git"
@@ -77,7 +79,7 @@
         dest: "~/idea-IC-171.4424.56/plugins/"
         remote_src: yes
       with_items: 
-        - "https://plugins.jetbrains.com/plugin/download?updateId=34745"
+        - "https://plugins.jetbrains.com/plugin/download?updateId=33637"
    
     - name: "Install remote DEB packages"
       apt:
