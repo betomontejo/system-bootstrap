@@ -72,6 +72,14 @@
       unarchive:
         src: "~/ideaIC-2017.1.2.tar.gz"
         dest: "~/"
+
+    - name: "Download and unarchive IntelliJ IDEA Plugins"
+      unarchive:
+        src: "{{ item }}"
+        dest: "~/idea-IC-171.4249.39/plugins/"
+        remote_src: yes
+      with_items: 
+        - "https://plugins.jetbrains.com/plugin/download?updateId=34745"
    
     - name: "Install remote DEB packages"
       apt:
