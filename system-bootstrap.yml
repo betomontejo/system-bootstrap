@@ -28,7 +28,7 @@
       become: true
     
     - name: "Upgrade APT"
-      shell: apt upgrade
+      shell: apt -y upgrade
       become: true
 
     - name: "Install APT packages"
@@ -69,4 +69,9 @@
       unarchive:
         src: "~/ideaIC-2017.1.2.tar.gz"
         dest: "~/"
+   
+    - name: "Install Virtualbox"
+      apt:
+        deb: "http://download.virtualbox.org/virtualbox/5.1.22/virtualbox-5.1_5.1.22-115126~Ubuntu~xenial_amd64.deb"
+      become: true
       
