@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
+ 
+  vars:
+    - ubuntu_codename: "zesty"
 
   tasks:
 
@@ -21,8 +24,8 @@
       with_items: 
         - "ppa:git-core/ppa"
         - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-        - "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
-        - "deb http://download.virtualbox.org/virtualbox/debian xenial contrib"
+        - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_codename}} stable"
+        - "deb http://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
 
     - name: "Update APT cache"
       apt:
