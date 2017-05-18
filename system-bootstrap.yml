@@ -65,6 +65,13 @@
         - "virtualbox-5.1"
       become: true
 
+    - name: "Install remote DEB packages"
+      apt:
+        deb: "{{ item }}"
+      become: true
+      with_items: 
+        - "https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb"
+
     - name: "Install SDKMAN!"
       shell: curl -s "https://get.sdkman.io" | bash
  
@@ -96,9 +103,3 @@
       with_items: 
         - "{{ idea_plugins }}"
    
-    - name: "Install remote DEB packages"
-      apt:
-        deb: "{{ item }}"
-      become: true
-      with_items: 
-        - "https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb"
