@@ -71,6 +71,14 @@
       become: true
       with_items: 
         - "https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb"
+    
+    - name: "Install PIP packages"
+      pip:
+        name: "{{ item }}"
+      with_items:
+        - "awscli"
+        - "httpie"
+      become: true
 
     - name: "Install SDKMAN!"
       shell: curl -s "https://get.sdkman.io" | bash
