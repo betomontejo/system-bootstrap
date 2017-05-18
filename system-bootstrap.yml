@@ -6,6 +6,18 @@
     - idea_plugins:
       - name: "Scala"
         url: "https://plugins.jetbrains.com/plugin/download?updateId=33637" 
+      - name: "Grep Console"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=32409"
+      - name: "Lombok Plugin"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=31785"
+      - name: "IdeaVim"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=31805"
+      - name: "CheckStyle-IDEA"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=34876"
+      - name: "FindBugs-IDEA"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=29582"
+      - name: "Markdown support"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=34427"
 
   tasks:
 
