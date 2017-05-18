@@ -3,6 +3,9 @@
  
   vars:
     - ubuntu_codename: "zesty"
+    - idea_plugins:
+      - name: "Scala"
+        url: "https://plugins.jetbrains.com/plugin/download?updateId=33637" 
 
   tasks:
 
@@ -75,11 +78,11 @@
 
     - name: "Download and unarchive IntelliJ IDEA Plugins"
       unarchive:
-        src: "{{ item }}"
+        src: "{{ item.url }}"
         dest: "~/idea-IC-171.4424.56/plugins/"
         remote_src: yes
       with_items: 
-        - "https://plugins.jetbrains.com/plugin/download?updateId=33637"
+        - "{{ idea_plugins }}"
    
     - name: "Install remote DEB packages"
       apt:
