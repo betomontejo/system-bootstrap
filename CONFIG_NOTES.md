@@ -15,3 +15,16 @@ $> xinput --set-prop 12 273 0.8   # Pointer speed
 ```
 [Source](https://askubuntu.com/a/208230)
 
+## Gnome interface
+
+- Add date to title bar:
+```
+gsettings set org.gnome.desktop.interface clock-show-date true
+```
+- Show seconds in title bar:
+```
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+```
+
+
+
