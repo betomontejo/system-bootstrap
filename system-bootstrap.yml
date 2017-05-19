@@ -59,6 +59,8 @@
         - "vim"
         - "zip"
         - "unzip"
+        - "gnupg"
+        - "pass"
         - "git"
         - "google-chrome-stable"
         - "docker-ce"
